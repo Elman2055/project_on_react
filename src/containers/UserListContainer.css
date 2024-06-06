@@ -1,3 +1,26 @@
 .userListContainer {
+  height: 85vh;
+  width: 60vw;
   margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.title {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 10px;
+  border-bottom: 1px solid gray;
+}
+
+.addBtn {
+  cursor: pointer;
+  height: 5vh;
+  width: 15vw;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(10, 179, 10);
+  color: white;
 }
