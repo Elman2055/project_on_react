@@ -18,6 +18,7 @@
 .myPhoto {
   height: 8vh;
   width: 4vw;
+  border-radius: 25px;
 }
 
 .infoUser {

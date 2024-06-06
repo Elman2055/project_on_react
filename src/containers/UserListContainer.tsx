@@ -16,35 +16,44 @@ const UserListContainer = () => {
   const [nameValue, setNameValue] = useState<string>("");
   const [infoValue, setInfoValue] = useState<string>("");
 
+  const [flag, setFlag] = useState<boolean>(false);
+
+  const onAddUser = () => {
+    setFlag(true);
+  };
+
+  const onClose = () => {
+    setFlag(false);
+  };
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const copystate = [...usersInfo];
     const newUser = {
-      image: MyPicture,
+      image: imgValue,
       id: usersInfo.length + 1,
       name: nameValue,
       userInfo: infoValue,
     };
 
     setUsersInfo([...copystate, newUser]);
+    setFlag(false);
   };
 
   const handleEditUser = (id: number) => {
-    const newName = prompt("Введите новое имя:", usersInfo[id].name);
+    const newName = prompt("Введите новое имя:", usersInfo[id - 1].name);
     const newUserInfo = prompt(
       "Введите новую информацию:",
-      usersInfo[id].userInfo
+      usersInfo[id - 1].userInfo
     );
 
-    if (newName && newUserInfo) {
-      const updatedUsers = usersInfo.map((elem) =>
-        elem.id === id
-          ? { ...elem, name: newName, userInfo: newUserInfo }
-          : elem
-      );
-      setUsersInfo(updatedUsers);
-    }
+    const updatedUsers = usersInfo.map((elem) =>
+      elem.id === id
+        ? { ...elem, name: newName as string, userInfo: newUserInfo as string }
+        : elem
+    );
+    setUsersInfo(updatedUsers);
   };
 
   const onRemoveUser = (id: number) => {
@@ -56,7 +65,9 @@ const UserListContainer = () => {
       <div className="userListContainer">
         <div className="title">
           <h2>Команда</h2>
-          <button className="addBtn">Добавить пользователя</button>
+          <button className="addBtn" onClick={onAddUser}>
+            Добавить пользователя
+          </button>
         </div>
         {usersInfo.map((elem) => (
           <UserList
@@ -70,12 +81,15 @@ const UserListContainer = () => {
           />
         ))}
       </div>
-      <FormUser
-        onSubmit={onSubmit}
-        imgInp={setImgValue}
-        nameInp={setNameValue}
-        infoInp={setInfoValue}
-      />
+      {flag && (
+        <FormUser
+          onClose={onClose}
+          onSubmit={onSubmit}
+          imgInp={setImgValue}
+          nameInp={setNameValue}
+          infoInp={setInfoValue}
+        />
+      )}
     </>
   );
 };

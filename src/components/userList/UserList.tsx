@@ -1,4 +1,3 @@
-import React from "react";
 import { TUsers } from "../../types/data.types";
 import "./UserList.css";
 

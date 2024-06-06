@@ -1,11 +1,10 @@
-import React from "react";
 import { TModal } from "../../types/data.types";
 import "./Form.css";
 
 const FormUser = (props: TModal) => {
   return (
     <>
-      <div className="backdrop"></div>
+      <div className="backdrop" onClick={props.onClose}></div>
       <div className="formUserContainer">
         <form className="formUser" onSubmit={props.onSubmit}>
           <input

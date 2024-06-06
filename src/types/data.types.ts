@@ -8,6 +8,7 @@ export type TUsers = {
 };
 
 export type TModal = {
+  onClose: VoidFunction;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   imgInp: (e: string) => void;
   nameInp: (e: string) => void;

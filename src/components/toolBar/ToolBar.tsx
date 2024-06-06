@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "../UI/images/Logo.png";
 import MyPicture from "../UI/images/MyPicture.png";
 import UpUnion from "../UI/images/UpUnion.png";
