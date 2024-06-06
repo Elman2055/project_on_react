@@ -1,0 +1,16 @@
+.userList {
+  height: 13vh;
+  width: 50vw;
+  padding-left: 10px;
+  display: flex;
+}
+
+.myPhoto {
+  height: 10vh;
+  width: 5vw;
+}
+
+.infoUser {
+  padding: 10px 0px 0px 5px;
+  color: rgb(75, 71, 71);
+}
