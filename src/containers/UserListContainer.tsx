@@ -39,6 +39,9 @@ const UserListContainer = () => {
 
     setUsersInfo([...copystate, newUser]);
     setFlag(false);
+    setImgValue("");
+    setNameValue("");
+    setInfoValue("");
   };
 
   const handleEditUser = (id: number) => {
@@ -88,6 +91,9 @@ const UserListContainer = () => {
           imgInp={setImgValue}
           nameInp={setNameValue}
           infoInp={setInfoValue}
+          imgVal={imgValue}
+          nameVal={nameValue}
+          infoVal={infoValue}
         />
       )}
     </>

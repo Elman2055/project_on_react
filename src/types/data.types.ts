@@ -13,4 +13,7 @@ export type TModal = {
   imgInp: (e: string) => void;
   nameInp: (e: string) => void;
   infoInp: (e: string) => void;
+  imgVal: string;
+  nameVal: string;
+  infoVal: string;
 };

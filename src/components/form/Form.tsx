@@ -10,16 +10,19 @@ const FormUser = (props: TModal) => {
           <input
             type="text"
             placeholder="Введите ссылку на фото"
+            value={props.imgVal}
             onChange={(e) => props.imgInp(e.target.value)}
           />
           <input
             type="text"
             placeholder="Введите Ф.И.О"
+            value={props.nameVal}
             onChange={(e) => props.nameInp(e.target.value)}
           />
           <input
             type="text"
             placeholder="Введите информацию о вас"
+            value={props.infoVal}
             onChange={(e) => props.infoInp(e.target.value)}
           />
           <button className="saveBtn">Save</button>
