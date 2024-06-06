@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { TUsers } from "../types/data.types";
 import UserList from "../components/userList/UserList";
 import MyPicture from "../components/UI/images/MyPicture.png";
-import { TUsers } from "../types/data.types";
+import FormUser from "../components/form/Form";
 import "./UserListContainer.css";
 
 const UserListContainer = () => {
@@ -12,16 +13,18 @@ const UserListContainer = () => {
     { image: MyPicture, id: 4, name: "Никита", userInfo: "Оператор" },
   ]);
 
-  const handleEditUser = (index: number) => {
-    const newName = prompt("Введите новое имя:", usersInfo[index].name);
+  const handleEditUser = (id: number) => {
+    const newName = prompt("Введите новое имя:", usersInfo[id].name);
     const newUserInfo = prompt(
       "Введите новую информацию:",
-      usersInfo[index].userInfo
+      usersInfo[id].userInfo
     );
 
     if (newName && newUserInfo) {
-      const updatedUsers = usersInfo.map((user, i) =>
-        i === index ? { ...user, name: newName, userInfo: newUserInfo } : user
+      const updatedUsers = usersInfo.map((elem) =>
+        elem.id === id
+          ? { ...elem, name: newName, userInfo: newUserInfo }
+          : elem
       );
       setUsersInfo(updatedUsers);
     }
@@ -29,26 +32,29 @@ const UserListContainer = () => {
 
   const onRemoveUser = (id: number) => {
     setUsersInfo(usersInfo.filter((item) => item.id !== id));
-  };    
+  };
 
   return (
-    <div className="userListContainer">
-      <div className="title">
-        <h2>Команда</h2>
-        <button className="addBtn">Добавить пользователя</button>
+    <>
+      <div className="userListContainer">
+        <div className="title">
+          <h2>Команда</h2>
+          <button className="addBtn">Добавить пользователя</button>
+        </div>
+        {usersInfo.map((elem) => (
+          <UserList
+            key={elem.id}
+            id={elem.id}
+            image={elem.image}
+            name={elem.name}
+            userInfo={elem.userInfo}
+            onEdit={() => handleEditUser(elem.id)}
+            onRemove={() => onRemoveUser(elem.id)}
+          />
+        ))}
       </div>
-      {usersInfo.map((elem) => (
-        <UserList
-          key={elem.id}
-          id={elem.id}
-          image={elem.image}
-          name={elem.name}
-          userInfo={elem.userInfo}
-          onEdit={() => handleEditUser(elem.id)}
-          onRemove={() => onRemoveUser(elem.id)}
-        />
-      ))}
-    </div>
+      <FormUser />
+    </>
   );
 };
 
