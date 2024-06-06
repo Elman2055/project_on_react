@@ -1,17 +1,41 @@
 .userList {
-  height: 13vh;
-  width: 60vw;
-  padding-left: 10px;
+  height: 10vh;
+  width: 55vw;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 20px;
+  padding-left: 20px;
+}
+.userList:last-child {
+  margin-bottom: 20px;
+}
+
+.user {
+  display: flex;
 }
 
 .myPhoto {
-  height: 10vh;
-  width: 5vw;
+  height: 8vh;
+  width: 4vw;
 }
 
 .infoUser {
-  padding: 10px 0px 0px 5px;
+  padding-left: 10px;
   color: rgb(75, 71, 71);
+}
+
+.profileBtn {
+  cursor: pointer;
+  height: 6vh;
+  width: 3.5vw;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(28, 230, 85);
+  margin-left: 15px;
+}
+
+.removeBtn {
+  background-color: red;
+  color: white;
 }
