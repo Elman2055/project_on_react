@@ -48,12 +48,10 @@ const UserListContainer = () => {
       usersInfo[id - 1].userInfo
     );
 
-    if (newName && newUserInfo === null) return;
+    if (newName === null || newUserInfo === null) return;
 
     const updatedUsers = usersInfo.map((elem) =>
-      elem.id === id
-        ? { ...elem, name: newName as string, userInfo: newUserInfo as string }
-        : elem
+      elem.id === id ? { ...elem, name: newName, userInfo: newUserInfo } : elem
     );
     setUsersInfo(updatedUsers);
   };
