@@ -1,3 +1,48 @@
+.backdrop {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.8;
+}
+
 .formUserContainer {
-    
+  position: absolute;
+  height: 60vh;
+  width: 27vw;
+  background-color: aqua;
+  border-radius: 15px;
+  top: 17%;
+  left: 37%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formUser {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formUser > input {
+  height: 5vh;
+  width: 22vw;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.saveBtn {
+  cursor: pointer;
+  height: 4vh;
+  width: 10vw;
+  border: none;
+  border-radius: 15px;
+  background-color: bisque;
+  color: black;
+  font-size: 15px;
 }

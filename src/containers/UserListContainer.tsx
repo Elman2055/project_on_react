@@ -12,6 +12,23 @@ const UserListContainer = () => {
     { image: MyPicture, id: 3, name: "Михаил", userInfo: "SMM" },
     { image: MyPicture, id: 4, name: "Никита", userInfo: "Оператор" },
   ]);
+  const [imgValue, setImgValue] = useState<string>("");
+  const [nameValue, setNameValue] = useState<string>("");
+  const [infoValue, setInfoValue] = useState<string>("");
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const copystate = [...usersInfo];
+    const newUser = {
+      image: MyPicture,
+      id: usersInfo.length + 1,
+      name: nameValue,
+      userInfo: infoValue,
+    };
+
+    setUsersInfo([...copystate, newUser]);
+  };
 
   const handleEditUser = (id: number) => {
     const newName = prompt("Введите новое имя:", usersInfo[id].name);
@@ -53,7 +70,12 @@ const UserListContainer = () => {
           />
         ))}
       </div>
-      <FormUser />
+      <FormUser
+        onSubmit={onSubmit}
+        imgInp={setImgValue}
+        nameInp={setNameValue}
+        infoInp={setInfoValue}
+      />
     </>
   );
 };
